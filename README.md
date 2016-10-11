@@ -8,4 +8,4 @@ The WebKrawler takes a given URL, and searches the html code for links, and then
 |---------------|--------------------------------------|
 |get_page		|Get webpage and decode bytes to string|
 |get_next_target|Find links in html,return url endpoint|
-|print_all_links|Print all print_all_links 			   |
+|print_all_links|Print all links found in html		   |
