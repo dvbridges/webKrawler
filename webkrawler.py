@@ -68,7 +68,7 @@ def get_all_links(page):
 def union(old,new):
 	"""
 	Union function checks whether page is in tocrawl list.
-	If not in list, append and visit that webpage
+	If not in list, append
 	"""
 	for i in new:
 		if i not in old:
