@@ -76,7 +76,7 @@ def union(old,new):
 	
 def krawl_web(seed):
 	"""
-	Maintains list of urls to crawl. Visited URLs are removed and sent to "krawled" procedure.
+	Maintains list of urls to crawl. Visited URLs are removed from 'tocrawl' list and saved in 'crawled' list.
 	"""
 	tocrawl=get_all_links(get_page(seed))
 	crawled=[]
