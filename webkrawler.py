@@ -6,7 +6,7 @@
 # Created			: 11th October 2016
 # Last Modified		: 16th October 2016
 # Version			: 1.0
-# Description		: A depth-first web crawler
+# Description		: Web crawler - in progress
 
 import urllib.request
 
@@ -74,22 +74,37 @@ def union(old,new):
 		if i not in old:
 			old.append(i)
 	
-def krawl_web(seed):
+def krawl_web(seed, max_pages, max_depth):
 	"""
-	Maintains list of urls to crawl. Visited URLs are removed from 'tocrawl' list and saved in 'crawled' list.
+	Maintains list of urls to crawl. Max_pages determines number of unique pages to search, and max_depth determines depth
+	Operations:
+	1) Fill tocrawl with all seed links
+	2) while tocrawl has urls and depth < max_depth, loop
+	3) if page is not in previously crawled and crawled is shorter than max pages
+		- fill new_depth with all urls from each url link in tocrawl. Continue until tocrawl is empty
+		- add pages visited to crawled
+	4) If tocrawl is empty, fill tocrawl with links from next_depth. Depth +=1. This advances crawler to next depth
 	"""
 	tocrawl=get_all_links(get_page(seed))
 	crawled=[]
-	while tocrawl:
+	next_depth=[]
+	depth=0
+
+	while tocrawl and depth <=max_depth:
 		page=tocrawl.pop()
-		if page not in crawled:
-			union(tocrawl,get_all_links(get_page(page)))
+		if page not in crawled and len(crawled)<max_pages:
+			union(max_depth,get_all_links(get_page(page)))
 			crawled.append(page)
+		if not tocrawl:
+			tocrawl,next_depth=next_depth,[]
+			depth+=1
+			print("Advancing depth to stage {}".format(depth+1))
 	return crawled 
 
 def Main():
 	seed='http://www.udacity.com/cs101x/index.html'
-	print(krawl_web(seed))
+	print(krawl_web(seed,10,4))
 
 if __name__=='__main__':
 	Main()
+
