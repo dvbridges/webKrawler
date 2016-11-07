@@ -1,12 +1,6 @@
-# webKrawler
-## A Python webcrawler
+# SkorPyan
+## A Python webcrawler and search engine
 
-This Python webcrawler is in development. The code is mainly inspired by the Introduction to Computer Science course from [Udacity](https://www.udacity.com/), with some additions (such as handling exceptions). The WebKrawler is a depth-first spider which takes a given URL, and searches the html code and creates a list of links which are visited. All URLs are logged and no URL is visited twice. The WebKrawler so far consists of the following functions:
+A Python webcrawler and search enging from the Introduction to Computer Science course at [Udacity](https://www.udacity.com/). The webcrawler takes a seed page and crawls with a set maximum depth and breadth gaining an index of all webpages and their content. A page ranking function ranks the links in terms of their popularity and returns the a list most popular page. A search term can also be passed returning a list of pages where that term is found.
 
-|functions		|Description						   									  			|
-|---------------|-----------------------------------------------------------------------------------|
-|get_page		|Get webpage and decode bytes to string									  			|
-|get_next_target|Find links in html,return url endpoint					                  			|
-|get_all_links	|Creates list of all links found html  									  			| 
-|union			|Checks newly found urls have not been visite already			   					|
-|krawl_web		|Unleashes web crawler on seed URL, with max depth and pages to determine iterations| 
+The search engine is called [SkorPyan](https://www.youtube.com/watch?v=3C3poU_0sK4), when you want your searched items to GET OVER HERE.
